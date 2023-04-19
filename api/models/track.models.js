@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const validations = require("../utils/validations");
 const Schema = mongoose.Schema;
 
-const songSchema = new Schema(
+const trackSchema = new Schema(
   {
     name: {
       type: String,
-      require: "Song name is required",
+      require: "Track name is required",
     },
 
     artist: {},
@@ -30,5 +30,5 @@ const songSchema = new Schema(
   { timestamps: true }
 );
 
-const Song = mongoose.model("Song", songSchema);
-module.exports = Song;
+const Track = mongoose.model("Track", trackSchema);
+module.exports = Track;

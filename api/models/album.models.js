@@ -11,7 +11,7 @@ const albumSchema = new Schema(
 
     artist: {},
 
-    songs: [{}],
+    tracks: [{}],
 
     url: {
       type: String,
