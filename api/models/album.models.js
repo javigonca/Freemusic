@@ -6,7 +6,7 @@ const albumSchema = new Schema(
   {
     name: {
       type: String,
-      require: "Album name is required",
+      required: "Album name is required",
     },
 
     artist: {},
