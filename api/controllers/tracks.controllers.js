@@ -26,3 +26,28 @@ module.exports.detail = (req, res, next) => {
   })
   .catch(next)
 }
+
+module.exports.delete = (req, res, next) => {
+  Track.findByIdAndDelete(req.params.id)
+  .then((track) => {
+    if (track) {
+      res.status(204).send();
+    } else {
+      next(createError(404, 'Track not found'));
+    }
+  })
+  .catch(next)
+}
+
+module.exports.update = (req, res, next) => {
+  Track.findByIdAndUpdate(req.params.id, req.body, { runValidation: true, new: true })
+  .then((track) => {
+    if (track) {
+      res.json(track)
+    } else {
+      next(createError(404, 'Track not found'))
+    }
+
+  })
+  .catch(next)
+}
