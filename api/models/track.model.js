@@ -9,9 +9,10 @@ const trackSchema = new Schema(
       required: "Track name is required",
     },
 
-    artist: {},
-
-    album: {},
+    artist: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Artist",
+    },
 
     duration: {
       type: String,
@@ -24,8 +25,6 @@ const trackSchema = new Schema(
         message: "Not a valid url",
       },
     },
-
-    likes: [{}],
   },
   {
     timestamps: true,
@@ -40,6 +39,20 @@ const trackSchema = new Schema(
     },
   }
 );
+
+trackSchema.virtual("album", {
+  ref: "Album",
+  localField: "_id",
+  foreignField: "tracks",
+  justOne: false,
+});
+
+trackSchema.virtual("like", {
+  ref: "Like",
+  localField: "_id",
+  foreignField: "like",
+  justOne: false,
+});
 
 const Track = mongoose.model("Track", trackSchema);
 module.exports = Track;

@@ -1,4 +1,4 @@
-const Album = require("../models/album.models");
+const Album = require("../models/album.model");
 const createError = require("http-errors");
 
 module.exports.list = (req, res, next) => {

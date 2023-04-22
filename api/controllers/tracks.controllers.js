@@ -1,4 +1,4 @@
-const Track = require("../models/track.models");
+const Track = require("../models/track.model");
 const createError = require("http-errors");
 
 module.exports.list = (req, res, next) => {
