@@ -5,4 +5,4 @@ module.exports.isValidUrl = (url) => {
   } catch (error) {
     return false;
   }
-}
+};

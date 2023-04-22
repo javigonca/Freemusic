@@ -27,7 +27,7 @@ const trackSchema = new Schema(
 
     likes: [{}],
   },
-  { 
+  {
     timestamps: true,
     toJSON: {
       virtuals: true,
@@ -36,8 +36,8 @@ const trackSchema = new Schema(
         ret.id = ret._id;
         delete ret._id;
         return ret;
-      }
-    }
+      },
+    },
   }
 );
 
