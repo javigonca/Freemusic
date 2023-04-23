@@ -4,6 +4,7 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const createError = require("http-errors");
+const secure = require("./middlewares/secure.mid")
 
 //** Load configuration */
 require("./config/db.config");
@@ -13,6 +14,8 @@ const app = express();
 app.use(express.json());
 
 app.use(logger("dev"));
+
+app.use(secure.removeId);
 
 const api = require("./config/routes.config");
 app.use("/api/v1", api);
@@ -28,6 +31,9 @@ app.use((error, req, res, next) => {
     error.path === "_id"
   ) {
     error = createError(404, "Resource not found");
+  } else if (error.message.includes("E11000")) {
+    //E1100 => error of duplicate key
+    error = createError(409, "Duplicated");
   } else if (!error.status) {
     error = createError(500, error);
   }

@@ -2,7 +2,8 @@ const Track = require("../models/track.model");
 const createError = require("http-errors");
 
 module.exports.list = (req, res, next) => {
-  Track.find()
+  Track.find()  
+    .populate("album")  
     .then((tracks) => res.json(tracks))
     .catch(next);
 };
@@ -15,6 +16,7 @@ module.exports.create = (req, res, next) => {
 
 module.exports.detail = (req, res, next) => {
   Track.findById(req.params.id)
+    .populate("album")
     .then((track) => {
       if (!track) {
         next(createError(404, "Track not found"));

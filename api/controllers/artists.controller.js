@@ -3,6 +3,8 @@ const createError = require("http-errors");
 
 module.exports.list = (req, res, next) => {
   Artist.find()
+    .populate("albums")
+    .populate("tracks")
     .then((artists) => res.json(artists))
     .catch(next);
 };
@@ -14,7 +16,9 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.detail = (req, res, next) => {
-  Artist.findById(req.params.id)
+  Artist.findById(req.params.id)  
+    .populate("albums")
+    .populate("tracks")
     .then((artist) => {
       if (!artist) {
         next(createError(404, "Artist not found"));

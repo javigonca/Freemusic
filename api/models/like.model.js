@@ -3,8 +3,15 @@ const Schema = mongoose.Schema;
 
 const likeSchema = new Schema(
   {
-    track: {},
-    user: {},
+    track: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Track",
+
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
   },
   {
     timestamps: true,

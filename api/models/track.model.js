@@ -24,6 +24,8 @@ const trackSchema = new Schema(
         validator: validations.isValidUrl,
         message: "Not a valid url",
       },
+      unique: true,
+      //required: "URL is required",
     },
   },
   {

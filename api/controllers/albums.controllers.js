@@ -2,7 +2,7 @@ const Album = require("../models/album.model");
 const createError = require("http-errors");
 
 module.exports.list = (req, res, next) => {
-  Album.find()
+  Album.find()    
     .then((albums) => res.json(albums))
     .catch(next);
 };
@@ -14,7 +14,7 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.detail = (req, res, next) => {
-  Album.findById(req.params.id)
+  Album.findById(req.params.id)   
     .then((album) => {
       if (!album) {
         next(createError(404, "Album not found"));

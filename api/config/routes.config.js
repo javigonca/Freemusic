@@ -4,12 +4,15 @@ const tracks = require("../controllers/tracks.controllers");
 const albums = require("../controllers/albums.controllers");
 const artists = require("../controllers/artists.controller");
 const users = require("../controllers/users.controllers");
+const likes = require("../controllers/likes.controllers")
 
 router.get("/tracks", tracks.list);
 router.post("/tracks", tracks.create);
 router.get("/tracks/:id", tracks.detail);
+router.post("/tracks/:id/like", likes.toggle)
 router.delete("/tracks/:id", tracks.delete);
 router.patch("/tracks/:id", tracks.update);
+
 
 router.get("/albums", albums.list);
 router.post("/albums", albums.create);

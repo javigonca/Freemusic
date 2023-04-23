@@ -7,6 +7,11 @@ const artistSchema = new Schema(
       type: String,
       required: "Artist name is required",
     },
+
+    imageUrl: {
+      type: String,
+    },
+
   },
   {
     tiemestamps: true,
@@ -23,14 +28,14 @@ const artistSchema = new Schema(
 );
 
 artistSchema.virtual("tracks", {
-  ref: "Tracks",
+  ref: "Track",
   localField: "_id",
   foreignField: "artist",
   justOne: false,
 });
 
 artistSchema.virtual("albums", {
-  ref: "Albums",
+  ref: "Album",
   localField: "_id",
   foreignField: "artist",
   justOne: false,
