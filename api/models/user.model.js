@@ -29,6 +29,11 @@ const userSchema = new Schema(
       required: "Email is required",
       unique: true,
     },
+
+    confirm: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
@@ -61,6 +66,10 @@ userSchema.pre("save", function (next) {
     next();
   }
 });
+
+userSchema.methods.checkPassword = function (password) {
+  return bcrypt.compare(password, this.password);
+};
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;

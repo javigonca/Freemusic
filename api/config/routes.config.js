@@ -4,15 +4,16 @@ const tracks = require("../controllers/tracks.controllers");
 const albums = require("../controllers/albums.controllers");
 const artists = require("../controllers/artists.controller");
 const users = require("../controllers/users.controllers");
-const likes = require("../controllers/likes.controllers")
+const likes = require("../controllers/likes.controllers");
+const usersMid = require("../middlewares/user.mid");
+const secure = require("../middlewares/secure.mid")
 
 router.get("/tracks", tracks.list);
 router.post("/tracks", tracks.create);
 router.get("/tracks/:id", tracks.detail);
-router.post("/tracks/:id/like", likes.toggle)
+router.post("/tracks/:id/like", likes.toggle);
 router.delete("/tracks/:id", tracks.delete);
 router.patch("/tracks/:id", tracks.update);
-
 
 router.get("/albums", albums.list);
 router.post("/albums", albums.create);
@@ -29,7 +30,10 @@ router.patch("/artists/:id", artists.update);
 router.get("/users", users.list);
 router.post("/users", users.create);
 router.get("/users/:id", users.detail);
-router.delete("/users/:id", users.delete);
+router.get("/users/:id/confirm", usersMid.exists, users.confirm);
+router.delete("/users/:id", secure.auth, users.delete);
 router.patch("/users/:id", users.update);
+
+router.post("/login", users.login)
 
 module.exports = router;
