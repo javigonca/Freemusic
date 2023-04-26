@@ -1,10 +1,11 @@
-import TracksList from "./components/tracks-list/TracksList";
+import TracksList from "./components/tracks/tracks-list/TracksList";
 
 
 function App() {
   return (
     <>
       <TracksList/>
+      
     </>
   );
 }

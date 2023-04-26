@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import tracksService from "../../services/tracks";
+import tracksService from "../../../services/tracks";
 
 function TracksList() {
   const [tracks, setTracks] = useState([]);
@@ -7,14 +7,14 @@ function TracksList() {
   useEffect(() => {
     tracksService.list()
     .then((tracks) => setTracks(tracks))
-    .catch(console.error)
+    .catch(error => console.error(error))
   }, []);
 
   return (
     <>
       <h1>Tracks List</h1>
       {tracks.map((track) => (
-        <div key={track.id}>{track.name}</div>
+        <div key={track.id}>{track.name} {track.id}</div>
       ))}
     </>
   );
