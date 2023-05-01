@@ -1,10 +1,10 @@
 import React from 'react'
-import UsersForm from '../components/users/users-form/UsersForm'
-import { Link } from 'react-router-dom'
-import logo from '../assets/img/logoOne.png'
 import PageLayout from '../components/layout/PageLayout'
+import UsersLogin from '../components/users/users-login/UsersLogin'
+import logo from '../assets/img/logoOne.png'
+import { Link } from 'react-router-dom'
 
-function RegisterPage() {
+function LoginPage() {
   return (
     <PageLayout>
     <div className="row justify-content-center">
@@ -12,18 +12,15 @@ function RegisterPage() {
         <div className="max-auto">
           <img src={logo} alt="Freemusic" className="rounded float-start" style={{ maxHeight: '130px' }} />
           <h1 className="pt-4 text-white"> Fremusic</h1>
-          <p className="text-secondary"> Sign up</p>
+          <p className="text-secondary"> Login</p>
         </div>
-        <UsersForm />
+        <UsersLogin />
         <hr />
-        <p className='m-0 text-white'>Already registered? just <Link to="/login">Login!</Link></p>
+        <p className='m-0 text-white'>Don't have an account yet?  <Link to="/users"> Create an account</Link></p>
       </div>
     </div>
   </PageLayout>
-   
-      
-   
   )
 }
 
-export default RegisterPage
+export default LoginPage

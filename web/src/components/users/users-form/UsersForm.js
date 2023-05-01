@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import usersService from "../../../services/users";
+import { useNavigate } from "react-router-dom";
 
 function UsersForm() {
   const {
@@ -11,12 +12,16 @@ function UsersForm() {
   } = useForm({ mode: "onblur" });
 
   const [serverError, setServerError] = useState(undefined);
+  const navigate = useNavigate()
 
   const onUserSubmit = (user) => {
-    setServerError(undefined);
+    setServerError();
     usersService
       .create(user)
-      .then((user) => console.info(user))
+      .then((user) => {
+        console.info(user)
+        navigate('/')
+      })
       .catch((error) => {
         const errors = error.response?.data?.errors;
         if (errors) {

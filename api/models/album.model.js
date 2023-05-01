@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 
 const albumSchema = new Schema(
   {
+    imageUrl: {
+      type: String,
+    },
+    
     name: {
       type: String,
       required: "Album name is required",

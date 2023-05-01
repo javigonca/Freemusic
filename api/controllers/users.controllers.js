@@ -84,7 +84,7 @@ module.exports.login = (req, res, next) => {
           return next(createError(401, "Invalid credentials"));
         }
         const token = jwt.sign({ sub: user.id }, "supersecret");
-        res.json({ token });
+        res.json({ token, ...user.toJSON() });
       });
     })
     .catch(next);

@@ -20,11 +20,11 @@ const trackSchema = new Schema(
 
     url: {
       type: String,
-      validate: {
+      /*validate: {
         validator: validations.isValidUrl,
         message: "Not a valid url",
       },
-      unique: true,
+      unique: true,*/
       //required: "URL is required",
     },
   },

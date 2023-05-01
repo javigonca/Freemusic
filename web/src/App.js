@@ -6,18 +6,24 @@ import RegisterPage from "./pages/RegisterPage";
 import AlbumsList from "./components/albums/album-list/AlbumsList";
 import AlbumsPage from "./pages/AlbumsPage";
 import TracksPage from "./pages/TracksPage";
+import LoginPage from "./pages/LoginPage";
+import AuthStore from "./contexts/AuthStore";
 
 
 
 function App() {
   return (
     <>
-      <Navbar />      
-      <Routes>
-        <Route path="/users" element={<RegisterPage/>} />
-        <Route path="/albums" element={<AlbumsPage/>} />
-        <Route path="/tracks" element={<TracksPage/>} />
-      </Routes>
+
+      <AuthStore> 
+        <Navbar />      
+        <Routes>
+          <Route path="/users" element={<RegisterPage/>} />
+          <Route path="/albums?" element={<AlbumsPage/>} />
+          <Route path="/tracks" element={<TracksPage/>} />
+          <Route path="/login" element={<LoginPage/>} />
+        </Routes>
+      </AuthStore>
       
     
       

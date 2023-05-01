@@ -17,9 +17,9 @@ function TracksList() {
     <table className="table text-white">
       <thead>
         <tr>
-          <th scope="col">Titulo</th>
+          <th scope="col">Title</th>
           <th scope="col">Album</th>
-          <th scope="col">Duración</th>
+          <th scope="col">Duration</th>
         </tr>
       </thead>
       {tracks.map((track) => (
