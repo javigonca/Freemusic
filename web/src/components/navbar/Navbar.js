@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/img/logoOne.png";
-import Searchbar from "../serachBar/Searchbar";
 import { AuthContext } from "../../contexts/AuthStore";
 
 const renderNavLinkClassName = ({ isActive }) =>
@@ -9,23 +8,19 @@ const renderNavLinkClassName = ({ isActive }) =>
 
 function Navbar() {
   const { user, logout } = useContext(AuthContext);
-  const navigate = useNavigate();
-  
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-black">
       <div className="container">
-        <Link className="navbar-brand" to="/albums">
+        <Link className="navbar-brand" to="/">
           <img
             src={logo}
             alt="Freemusic"
             className="rounded float-start "
             style={{ maxHeight: "30px" }}
           />
-          <div className="position-absolute top-15 start-50 ">
-            <Searchbar />
-          </div>
         </Link>
+
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">

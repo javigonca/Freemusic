@@ -1,10 +1,12 @@
-import http from './base-api';
+import http from "./base-api";
 
-const list = () => {
-  return http.get('/albums')
-    .then((res) => res.data)
-}
+const list = () => http.get("/albums")
+.then((res) => res.data);
+
+const detail = (id) => http.get(`/albums/${id}`)
+.then((res) => res.data);
 
 export default {
-  list
+  list,
+  detail,
 }

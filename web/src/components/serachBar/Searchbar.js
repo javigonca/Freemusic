@@ -3,7 +3,7 @@ import React from 'react'
   
 
 function Searchbar({ search, onSearch }) {
-  const handleChange = (ev) => {
+  const handleChange = (ev) => {    
     onSearch(ev.target.value)
   }
 

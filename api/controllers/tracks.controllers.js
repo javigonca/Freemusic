@@ -1,4 +1,5 @@
 const Track = require("../models/track.model");
+const Album = require("../models/album.model");
 const createError = require("http-errors");
 
 module.exports.list = (req, res, next) => {
@@ -10,7 +11,11 @@ module.exports.list = (req, res, next) => {
 
 module.exports.create = (req, res, next) => {
   Track.create(req.body)
-    .then((track) => res.status(201).json(track))
+    .then((track) => {      
+      return Album.findByIdAndUpdate(req.body.album, { tracks: [track.id] })
+      .then(album => res.status(201).json(track))
+      //res.status(201).json(track)
+    })
     .catch(next);
 };
 
