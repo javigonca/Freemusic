@@ -24,7 +24,7 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink to="/" className="nav-link">
+              <NavLink to="/" className={renderNavLinkClassName}>
                 <span className="text-white ms-0">Freemusic</span>
               </NavLink>
             </li>
@@ -32,57 +32,29 @@ function Navbar() {
           <ul className="navbar-nav mb-2 mb-lg-0">
             {user?.email ? (
               <>
-                <div className="dropdown">
+                <li className="nav-item">
+                  <NavLink to="/profile" className={renderNavLinkClassName}>
+                    <span className="text-white">{user.username}</span>
+                  </NavLink>
+                </li>
+                <li className="nav-item">
                   <button
-                    className="btn btn-dark  dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
+                    className="nav-link text-white"
+                    onClick={() => logout()}
                   >
-                    {user.username}
+                    Logout
                   </button>
-
-                  <ul className="dropdown-menu dropdown-menu-dark">
-                    <li>
-                      <NavLink to="/profile" className="dropdown-item">
-                        Profile
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/favourites" className="dropdown-item">
-                        Favourites
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/tracks" className="dropdown-item">
-                        Your music
-                      </NavLink>
-                    </li>
-                    <li>
-                      <button
-                        className="dropdown-item"
-                        onClick={() => logout()}
-                      >
-                        Logout
-                      </button>
-                    </li>
-                    <li>
-                      <NavLink to="/" className="dropdown-item">
-                        Home
-                      </NavLink>
-                    </li>
-                  </ul>
-                </div>
+                </li>
               </>
             ) : (
               <>
                 <li className="nav-item">
-                  <NavLink to="/users" className="nav-link">
+                  <NavLink to="/users" className={renderNavLinkClassName}>
                     <span className="text-white">Register</span>
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/login" className="nav-link">
+                  <NavLink to="/login" className={renderNavLinkClassName}>
                     <span className="text-white">Login</span>
                   </NavLink>
                 </li>

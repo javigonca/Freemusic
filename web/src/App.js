@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import AuthStore from "./contexts/AuthStore";
 import AlbumPage from "./pages/AlbumPage";
 import AlbumDetail from "./components/albums/album-detail/AlbumDetail";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/albums/:albumId" element={<AlbumPage/>} />
         </Routes>
+        <Footer/>
       </AuthStore>
     </>
   );
