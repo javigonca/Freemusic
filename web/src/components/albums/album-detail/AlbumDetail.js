@@ -21,7 +21,7 @@ function AlbumDetail({ handleClic }) {
   return (
     <>
       {!album ? (
-        <p>Loading...</p>
+        <p className='text-white'>Loading...</p>
       ) : (
         <>
           <h1 className="text-white">{album.name}</h1>

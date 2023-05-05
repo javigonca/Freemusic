@@ -14,12 +14,12 @@ function AlbumsList() {
   }, []);
 
   return (
-    <div className="accordion-collapse collapse show">
+    <div className="accordion-collapse collapse show ">
       <div className="accordion-body">
         <div className="row g-2">
           {albums.map((album) => (
             <div
-              className="col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch"
+              className="col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch "
               key={album.id}
             >
               <AlbumItem album={album} />

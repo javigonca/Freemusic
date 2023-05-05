@@ -6,7 +6,11 @@ const create = (user) => http.post('/users', user)
 const login = (user) => http.post('/login', user)
 .then((res) => res.data)
 
+const detail = (id) => http.get(`/users/${id}`)
+.then((res) => res.data);
+
 export default {
   create,
-  login
+  login,
+  detail
 }

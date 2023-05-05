@@ -22,7 +22,7 @@ function UsersLogin() {
       .login(user)
       .then((user) => {
         onUserChange(user);
-        navigate("/");
+        navigate("/albums");
       })
       .catch((error) => {
         const errors = error.response?.data?.errors;

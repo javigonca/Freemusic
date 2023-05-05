@@ -3,6 +3,7 @@ import PageLayout from "../components/layout/PageLayout";
 import AlbumDetail from '../components/albums/album-detail/AlbumDetail';
 import Audioplayer from '../components/audioPlayer/Audioplayer';
 
+
 function AlbumPage() {
   const [trackUrl, setTrackUrl] = useState();
 
@@ -12,7 +13,7 @@ function AlbumPage() {
   };
 
   return (
-    <PageLayout>
+    <PageLayout>      
       <div className="row">
         <div className="col-15">
           <AlbumDetail handleClic={handleClic} />

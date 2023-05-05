@@ -1,12 +1,11 @@
 import React from 'react'
-import Header from '../header/Header'
-
 import './PageLayout.css';
+import Navbar from '../navbar/Navbar';
 
 function PageLayout({ title, children }) {
   return (
     <div className='page-layout'>
-      <Header title={title} />
+      <Navbar />      
       <div className="container">
         {children}
       </div>

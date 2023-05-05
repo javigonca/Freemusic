@@ -12,17 +12,17 @@ function AlbumItem({ album: { imageUrl, name, tracks, id } }) {
         alt={name}
       />
       <div>
-        <div className="d-flex flex-column h-100">
-          <div className="d-flex align-items-baseline">
-            <h5 className="card-title px-3 py-1 fs-5 fw-lighter text-dark me-auto">
+        <div className="card border-light text-center pb-1" style={{width: "10rem"}}>
+          <div className="card-body">
+            <f5 className="card-title  fw-lighter text-dark text-uppercase">
               <Link
                 to={`/albums/${id}`}
-                className="text-dark link-underline-opacity-0"
+                className="text-decoration-none text-dark fw-semibold"
               >
                 {name}
               </Link>
-            </h5>
-            <h1 className="text-white">{tracks.name} </h1>
+            </f5>
+            <h1 className="text-white ">{tracks.name} </h1>
           </div>
         </div>
       </div>

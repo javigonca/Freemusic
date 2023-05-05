@@ -1,27 +1,26 @@
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./components/navbar/Navbar";
 import RegisterPage from "./pages/RegisterPage";
 import AlbumsPage from "./pages/AlbumsPage";
 import TracksPage from "./pages/TracksPage";
 import LoginPage from "./pages/LoginPage";
 import AuthStore from "./contexts/AuthStore";
 import AlbumPage from "./pages/AlbumPage";
-import AlbumDetail from "./components/albums/album-detail/AlbumDetail";
-import Footer from "./components/footer/Footer";
+import HomePage from "./pages/HomePage";
+import UserPage from "./pages/UserPage";
 
 function App() {
   return (
     <>
-      <AuthStore>
-        <Navbar />      
-        <Routes>
+      <AuthStore>             
+        <Routes>          
           <Route path="/users" element={<RegisterPage />} />
-          <Route path="/" element={<AlbumsPage />} />
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/albums" element={<AlbumsPage />} />
           <Route path="/tracks" element={<TracksPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/users/:userId" element={<UserPage/>} />
           <Route path="/albums/:albumId" element={<AlbumPage/>} />
-        </Routes>
-        <Footer/>
+        </Routes>        
       </AuthStore>
     </>
   );
