@@ -27,13 +27,7 @@ function AlbumsList() {
           ))}
         </div>
       </div>
-      <ul className="navbar-nav mb-2 mb-lg-0">
-        <li className="nav-item">
-          <Link to="/tracks">
-            <button className="btn btn-light mt-5">All Tracks</button>
-          </Link>
-        </li>
-      </ul>
+      
     </div>
   );
 }

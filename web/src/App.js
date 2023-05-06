@@ -7,6 +7,7 @@ import AuthStore from "./contexts/AuthStore";
 import AlbumPage from "./pages/AlbumPage";
 import HomePage from "./pages/HomePage";
 import UserPage from "./pages/UserPage";
+import CreateAlbumPage from "./pages/CreateAlbumPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/users/:userId" element={<UserPage/>} />
           <Route path="/albums/:albumId" element={<AlbumPage/>} />
+          <Route path="/create-album" element={<CreateAlbumPage/>}/>
         </Routes>        
       </AuthStore>
     </>

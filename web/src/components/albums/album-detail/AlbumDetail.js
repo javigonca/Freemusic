@@ -21,16 +21,22 @@ function AlbumDetail({ handleClic }) {
   return (
     <>
       {!album ? (
-        <p className='text-white'>Loading...</p>
+        <p className="text-white">Loading...</p>
       ) : (
         <>
           <h1 className="text-white">{album.name}</h1>
-
-          <ul className="text-white">
+          <ul className="list-group list-group-numbered mb-3">
             {album.tracks.map((t) => (
-              
-              <li key={t.id}> <button className="nav-link"
-              onClick={() => handleClic(t.url)}>{t.name}</button></li>
+              <li
+                className="list-group-item bg-black d-flex justify-content-start align-items-start text-white border border-0"
+                style={{ width: "75rem" }}
+                key={t.id}
+              >
+                {" "}
+                <button type="button" class="list-group-item-action list-group-item-action active bg-black text-white border-0 ms-1" aria-current="true" className="nav-link" onClick={() => handleClic(t.url)}>
+                  {t.name}
+                </button>
+              </li>
             ))}
           </ul>
         </>

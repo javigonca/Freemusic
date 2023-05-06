@@ -63,7 +63,7 @@ function Navbar() {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to="/tracks/:id" className="dropdown-item">
+                      <NavLink to="/create-album" className="dropdown-item">
                         Your music
                       </NavLink>
                     </li>
